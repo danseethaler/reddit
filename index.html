@@ -9,8 +9,8 @@
 
 <body ng-controller="PostsController">
     <div class="container">
-        <div class="jumbotron">
-            <h1>Welcome to Reddit?!</h1>
+        <div class="nav">
+            <h3>Welcome to Reddit?!</h3>
         </div>
         <div class="row">
             <div class="col-md-6">
@@ -52,13 +52,12 @@
                     Recent Posts!
                 </div>
                 <div class="panel-body">
-                    <div ng-repeat="post in posts">
-
-                        <h1>{{post.title}}</h1>
+                    <div ng-repeat="post in posts" ng-show="post.id" ng-cloak>
+                        <h1>{{post.title}}<span class="glyphicon glyphicon-remove" ng-click="removePost(post.id)"></span></h3>
                         <i>{{post.timestamp | date : format : timezone}}</i>
                         <p>{{post.body}}</p>
                         <i>{{post.author}}</i>
-                        <!--               <p>Karma: {{post.karma}}</p>
+                                      <!-- <p>Karma: {{post.karma}}</p>
               <span ng-click="vote(post.id, 'up')" class="glyphicon glyphicon-thumbs-up"></span>
               <span ng-click="vote(post.id, 'down')" class="glyphicon glyphicon-thumbs-down"></span>
               <hr>
@@ -74,11 +73,11 @@
                 {{item.comments}}
                 <hr>
               </div>
-            </div>
- -->
+            </div> -->
+
                     </div>
                     <div class="panel-footer">
-                        This is the panel footer.
+                        Thanks for reading REDDIT!
                     </div>
                 </div>
             </div>

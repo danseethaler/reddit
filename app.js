@@ -10,7 +10,7 @@ reddit.controller('PostsController', function ($scope, FirebaseService) {
 		})
 	};
 
-    $scope.loadPosts();
+	$scope.loadPosts();
 
 	$scope.addPost = function () {
 		FirebaseService.addPost($scope.newPost)
@@ -21,9 +21,22 @@ reddit.controller('PostsController', function ($scope, FirebaseService) {
 
 	$scope.bombsAway = function () {
 		FirebaseService.bombsAway()
-            .then(function(){
-                $scope.loadPosts();
-            })
+			.then(function () {
+				$scope.loadPosts();
+			})
 	}
 
+	$scope.removePost = function (postID) {
+		FirebaseService.removePost(postID)
+			.then(function (response) {
+				console.log(response);
+				for (var post in $scope.posts) {
+					if ($scope.posts.hasOwnProperty(post)) {
+						if (post === postID) {
+							delete $scope.posts[post];
+						}
+					}
+				}
+			});
+	};
 });

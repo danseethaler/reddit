@@ -5,11 +5,6 @@ reddit.service('FirebaseService', function ($http, $q) {
 	this.getRequest = function () {
 
 		$http.delete('https://devmtn.firebaseio.com/posts/0a2e1071-f95b-0b9f-bcec-b89aa225fcaf.json')
-			.then(function (res) {
-				console.log("deleted it", res);
-			}, function (err) {
-				console.log("didn't delete", err);
-			})
 
 		return $http.get('https://devmtn.firebaseio.com/posts.json')
 	};
@@ -44,5 +39,9 @@ reddit.service('FirebaseService', function ($http, $q) {
 			})
 	}
 
+    this.removePost = function(postID){
+        console.log('https://devmtn.firebaseio.com/posts/' + postID + '.json');
+        return $http.delete('https://devmtn.firebaseio.com/posts/' + postID + '.json');
+    }
 
 });

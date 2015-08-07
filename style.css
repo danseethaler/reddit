@@ -1,0 +1,16 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+h1 {
+    position: relative;
+}
+span.glyphicon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transition: .5;
+}
+
+.panel-footer {
+    margin-top: 20px;
+}
